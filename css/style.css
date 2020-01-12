@@ -3,11 +3,6 @@ header {
     display: none;
 }
 
-#top-bar ul {
-
-}
-
-
 #image-section-1 {
     height: 600px;
     width: 100%;
@@ -15,20 +10,58 @@ header {
     border: 1px solid black;
 }
 
-
 #product-section-1{
     height: 600px;
     width: 100%;
     font-size: 0px;
-    border: 1px solid black;
 }
 
 #image-section-2 {
     height: 600px;
     width: 100%;
     font-size: 0px;
-    border: 1px solid black;
 }
+
+#product-section-2{
+    height: 600px;
+    width: 100%;
+    font-size: 0px;
+}
+
+#newsletter-section {
+    height: 300px;
+    width: 100%;
+    background: #3e2100;
+}
+
+#newsletter-section div{
+    width: 45%;
+    position: relative;
+    display: block;
+    margin: 0 auto;
+}
+
+#newsletter-email-input{
+    width: 100%;
+    font-size: 20px;
+
+}
+
+#newsletter-section button{
+    background-color: #552d00;
+    text-transform: uppercase;
+    height: 40px;
+    padding-right: 20px;
+    padding-left: 20px;
+    font-size: 16px;
+    color: white;
+    margin: 0 auto;
+    display: block;
+    position: relative;
+    border-width: 0px;
+}
+
+/* General Classes */ 
 
 .row {
     width: 100%;
@@ -49,6 +82,24 @@ header {
     vertical-align: top;
 }
 
+
+.newsletter-title {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    color: #ffffff;
+    font-size: 38px;
+}
+
+.newsletter-text{
+    text-align: center;
+    font-family: sans-serif;
+    color: #ffffff;
+    font-size: 25px;
+}
+
+
+/* General Image Classes */
 
 .image-section-container{
     font-size: 12px;
@@ -78,31 +129,14 @@ header {
     height:200px;
 }
 
-#image-section-1-left {
-    background-image: url(../images/JHornig-Kaffee-kaufen.jpg);
-}
 
-#image-section-1-right-top {
-    background-image: url(../images/Bio-Tee-Sortiment.jpg);
-}
+/* General Product styles */ 
 
-
-#image-section-1-right-bottom-left {
-    background-image: url(../images/HOR_gastro.jpg);
-}
-
-#image-section-1-right-bottom-right {
-    background-image: url(../images/JHornig-Kaffee-fuers-Buero.jpg);
-}
-
-
-
-
-#product-section-1-title-container p {
+.product-title-text{
     font-size: 30px;
     text-align: center;
+    text-transform: uppercase;
 }
-
 
 .product-section-info-container{
     font-size: 12px;
@@ -150,7 +184,6 @@ header {
 
 .product-info-perKG b{
     color: #000000;
-
 }
 
 .product-info-shipping{
@@ -164,6 +197,33 @@ header {
     text-decoration-line: none;
 }
 
+
+
+/* Image Assets */
+
+
+/* Image Section 1 */ 
+
+#image-section-1-left {
+    background-image: url(../images/JHornig-Kaffee-kaufen.jpg);
+}
+
+#image-section-1-right-top {
+    background-image: url(../images/Bio-Tee-Sortiment.jpg);
+}
+
+#image-section-1-right-bottom-left {
+    background-image: url(../images/HOR_gastro.jpg);
+}
+
+#image-section-1-right-bottom-right {
+    background-image: url(../images/JHornig-Kaffee-fuers-Buero.jpg);
+}
+
+
+
+
+/* Product Section 1 */
 
 #product-section-1-1 {
     background-image: url(../images/JHornig-Spezial-Ganze-Bohne.jpg);
@@ -181,13 +241,13 @@ header {
 
 #product-section-1-4 {
     background-image: url(../images/JHornig-Entcoff-Ganze-Bohne.jpg);
-
 }
 
 
 
 
 
+/* Image Section 2 */
 
 #image-section-2-left-top {
     background-image: url(../images/JHornig-Kaffeebar-1070-Wien.jpg);
@@ -212,4 +272,29 @@ header {
 #image-section-2-right-right-bottom {
     background-image: url(../images/JHornig-Kaffee-richtig-zubereiten.jpg);
 }
+
+
+
+
+/* Product Section 2 */
+
+#product-section-2-1 {
+  background-image: url(../images/JHornig-Bio-Fruechte-Tee.jpeg); 
+
+}
+
+#product-section-2-2 {
+    background-image: url(../images/JHornig-Bio-Wilde-Fruechte-Tee.jpeg);
+
+}
+
+#product-section-2-3 {
+    background-image: url(../images/JHornig-Bio-Pfefferminze-Tee.jpeg);
+
+}
+
+#product-section-2-4 {
+    background-image: url(../images/JHornig-Bio-Orange-Tee.jpeg);
+}
+
 
