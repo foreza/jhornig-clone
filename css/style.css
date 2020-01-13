@@ -33,6 +33,11 @@ body {
 }
 
 
+
+.show-on-parent-hover{
+    display: none;
+}
+
 #nav-bar{
     background-color: #777777;
     width: 100%;
