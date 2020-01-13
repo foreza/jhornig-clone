@@ -1,12 +1,70 @@
 
-header {
-    display: none;
+body {
+    margin: 0px;
+}
+
+
+#top-bar{
+    background-color: #372f2c;
+    width: 100%;
 }
 
 #top-bar ul {
-
+    list-style: none;
+    display: inline-block;
+    width: 95%;
+    position: relative;
+    margin: 0 auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
+#top-bar li {
+    width: 100px;
+    display: inline-block;
+    color: #b3b0af;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+#top-bar li.item-float-right {
+    float: right;
+    margin-right: 50px;
+}
+
+
+#nav-bar{
+    background-color: #777777;
+    width: 100%;
+}
+
+#nav-bar ul {
+    list-style: none;
+    display: inline-block;
+    width: 95%;
+    position: relative;
+    margin: 0 auto;
+}
+
+#nav-bar li {
+    min-width: 100px;
+    text-align: center;
+    display: inline-block;
+    color: #b3b0af;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+
+#nav-bar li.item-logo img{
+    height: 40px;
+    position: absolute;
+    top: 20%;
+    left: 3%;
+}
 
 #image-section-1 {
     height: 600px;
