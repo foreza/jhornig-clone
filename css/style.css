@@ -9,38 +9,99 @@ body {
     width: 100%;
 }
 
-#top-bar ul {
+#top-bar-list {
     list-style: none;
-    display: inline-block;
+    display: block;
     width: 95%;
     position: relative;
     margin: 0 auto;
-    padding-top: 15px;
-    padding-bottom: 15px;
 }
 
-#top-bar li {
-    width: 100px;
+#top-bar-list > li {
+    min-width: 80px;
     display: inline-block;
     color: #b3b0af;
     font-family: Arial, Helvetica, sans-serif;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 12px;
+    
+}
+
+#newsletter-modal-link {
+    color: #b3b0af;
+    font-size: 14px;
+    text-decoration-line: none;
 }
 
 
-#top-bar li.item-float-right {
+.item-float-right {
     float: right;
     margin-right: 50px;
 }
 
 
 
-.show-on-parent-hover{
+.show-on-hover div.child-on-hover-menu{
     display: none;
 }
 
+.show-on-hover:hover div.child-on-hover-menu{
+    display: block;
+    position: absolute;
+    z-index: 999;
+}
+
+.show-on-hover:hover span{
+    color: #ffffff;
+}
+
+.show-on-hover div.child-on-hover-menu ul.child-list-menu{
+    list-style: none;
+    display: block;
+    width: 200px;
+    position: relative;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border: 1px solid #777777;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 15px;
+    padding-right: 10px;
+}
+
+.show-on-hover div.child-on-hover-menu ul.child-list-menu li{
+    text-align: left;
+    display: block;
+    color: #b3b0af;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 10px;
+    padding: 10px;
+    background: white;
+    font-size: 15px;
+}
+
+.show-on-hover div.child-on-hover-menu ul.child-list-menu li a{
+    text-decoration: none;
+    color: #b3b0af;
+}
+
+.show-on-hover div.child-on-hover-menu ul.child-list-menu li.spacer{
+    border: solid 1px #b3b0af;
+    font-size: 0;
+    padding: 0px;
+}
+
+.show-on-hover div.child-on-hover-menu ul.child-list-menu li a:hover{
+    color: #000000;
+}
+
+
+
 #nav-bar{
-    background-color: #777777;
+    background-color: #ffffff;
     width: 100%;
+    z-index: 1;
 }
 
 #nav-bar ul {
@@ -52,23 +113,28 @@ body {
 }
 
 #nav-bar li {
-    min-width: 100px;
+    min-width: 50px;
     text-align: center;
     display: inline-block;
-    color: #b3b0af;
+    color: #000000;
     font-family: Arial, Helvetica, sans-serif;
-    padding-bottom: 20px;
+    padding-bottom: 35px;
     padding-top: 20px;
     padding-left: 5px;
     padding-right: 5px;
 }
 
+#nav-bar li.item-logo {
+    width: 15%;
+    z-index: 1;
+}
 
 #nav-bar li.item-logo img{
-    height: 40px;
+    height: 56px;
     position: absolute;
     top: 20%;
     left: 3%;
+    z-index: 2;
 }
 
 #image-section-1 {
