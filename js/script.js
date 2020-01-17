@@ -4,7 +4,7 @@
 var imageSourceArray = [
     "../images/JHornig-Caffe-Crema-Classico.jpg",
     "../images/JHornig-Caffe-Crema-Classico.jpg",
-    "../images/JHornig-Caffe-Crema-Classico.jpg"
+    "../images/JHornig-Caffe-Crema-Classico.jpg",
     "../images/JHornig-Caffe-Crema-Classico.jpg",
     "../images/JHornig-Caffe-Crema-Classico.jpg",
     "../images/JHornig-Caffe-Crema-Classico.jpg",
