@@ -202,6 +202,91 @@ body {
     position: relative;
 }
 
+
+
+#image-carousel-section {
+    width: 100%;
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    height: 350px;
+    overflow: hidden;
+}
+
+.row-ca {
+    border: 1px solid black;
+    width: 1700px;
+    position: absolute;
+    height: 300px;
+    font-size: 0;
+    transition:2s;
+   -webkit-transition:2s;
+    -moz-transition:2s;
+    left:-12%;
+}
+
+.row-ca {
+  left:calc(-24% - 33%);
+}
+
+
+
+#left-mask-ca{
+    border: 1px solid black;
+
+    position: absolute;
+    display: relative;
+    left: 0;
+    background-color: #ffffff;
+
+    height: 300px;
+    width: 25%;
+    z-index: 100;
+}
+
+#right-mask-ca{
+    border: 1px solid black;
+
+    position: absolute;
+    display: relative;
+    left: 75%;
+    background-color: #ffffff;
+
+    height: 300px;
+    width: 25%;
+    z-index: 100;
+}
+
+.scroll-ca-image-container {
+    height: 300px;
+    z-index: 1;
+}
+
+#image-hidden-left {
+    background-color: aqua;
+}
+
+#image-hidden-right {
+    background-color: aquamarine;
+}
+
+#image-center {
+    background-color: chartreuse;
+}
+
+.image-ca {
+    height: 200px;
+    background-image: url(../images/JHornig-Caffe-Crema-Classico.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+
+}
+
+
+
+
 .col-6 {
     width: 50%;
     position: relative;
@@ -211,6 +296,13 @@ body {
 
 .col-3 {
     width: 25%;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.col-4 {
+    width: 33.33%;
     position: relative;
     display: inline-block;
     vertical-align: top;
