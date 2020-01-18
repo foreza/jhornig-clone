@@ -96,7 +96,7 @@ body {
 }
 
 
-#image-carousel-section {
+#top-image-carousel-section {
     width: 100%;
     position: relative;
     display: block;
@@ -143,6 +143,57 @@ body {
     background-size: cover;
     position: relative;
 
+}
+
+#blog-image-carousel-section {
+    width: 100%;
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    height: 270px;
+    overflow: hidden;
+    background: grey;
+}
+
+#instagram-image-carousel-section {
+    width: 100%;
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    height: 200px;
+    overflow: hidden;
+    background: grey;
+}
+
+#testimonials-columns-section{
+    font-size: 0;
+    background-color: #f3ebe3;
+    padding-left: 15%;
+    padding-right: 15%;
+
+}
+
+#testimonials-columns-section .testimonial-row div.col-6{
+    min-height: 300px;
+} 
+
+.testimonial-title {
+    font-size: 18px;
+    color:#777777;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.testimonial-title-spacer {
+    width: 20px;
+    height: 2px;
+    background-color: #777777;
+}
+
+.testimonial-content {
+    font-size: 15px;
+    color:#777777;
+    line-height: 25px;
+    width: 80%
 }
 
 #newsletter-section div#newsletter-section-info-indent{
