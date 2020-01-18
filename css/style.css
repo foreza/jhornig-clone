@@ -98,6 +98,18 @@ body {
     z-index: 2;
 }
 
+
+#image-carousel-section {
+    width: 100%;
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    height: 500px;
+    overflow: hidden;
+    background: grey;
+}
+
+
 #image-section-1 {
     height: 600px;
     width: 100%;
@@ -165,14 +177,7 @@ body {
 
 
 
-#image-carousel-section {
-    width: 100%;
-    position: relative;
-    display: block;
-    margin: 0 auto;
-    height: 350px;
-    overflow: hidden;
-}
+
 
 .row-ca {
     border: 1px solid black;
@@ -290,6 +295,9 @@ body {
 
 .image-section-container{
     font-size: 12px;
+    padding-top: 15px;
+    margin-left:7px;
+    margin-right:7px;
 }
 
 .background-image-centered{
@@ -309,13 +317,45 @@ body {
 }
 
 .background-image-medium{
-    height:300px;
+    height:275px;
 }
 
 .background-image-small{
     height:200px;
 }
 
+
+.background-image-text-overlay{
+    position: absolute;
+    top: 40%;
+    width: 100%;
+}
+
+.background-image-text-center-group{
+    display: block;
+    text-align: center;
+    position: relative;
+    width: 50%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.background-image-text-center-group a{
+    text-decoration: none;
+}
+
+.background-image-text-center-group span.small-comment{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.background-image-text-center-group span.big-comment{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #ffffff;
+    font-size: 24px;
+
+}
 
 /* General Product styles */ 
 
@@ -392,18 +432,14 @@ body {
 /* Image Section 1 */ 
 
 #image-section-1-left {
-    background-image: url(../images/JHornig-Kaffee-kaufen.jpg);
+    background-image: url(../images/Cold-Brew-Dose-Drink.jpg);
 }
 
-#image-section-1-right-top {
-    background-image: url(../images/Bio-Tee-Sortiment.jpg);
-}
-
-#image-section-1-right-bottom-left {
+#image-section-1-center {
     background-image: url(../images/HOR_gastro.jpg);
 }
 
-#image-section-1-right-bottom-right {
+#image-section-1-right {
     background-image: url(../images/JHornig-Kaffee-fuers-Buero.jpg);
 }
 
