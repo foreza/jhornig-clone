@@ -111,7 +111,6 @@ body {
 
 
 #image-section-1 {
-    height: 600px;
     width: 100%;
     font-size: 0px;
     border: 1px solid black;
@@ -127,6 +126,8 @@ body {
     height: 600px;
     width: 100%;
     font-size: 0px;
+    overflow: hidden;
+
 }
 
 #product-section-2{
@@ -295,9 +296,18 @@ body {
 
 .image-section-container{
     font-size: 12px;
+}
+
+#image-section-1 .image-section-container {
     padding-top: 15px;
     margin-left:7px;
     margin-right:7px;
+}
+
+#image-section-2 .image-section-container {
+    margin-left:2px;
+    margin-right:2px;
+    margin-top: 5px;
 }
 
 .background-image-centered{
@@ -317,11 +327,11 @@ body {
 }
 
 .background-image-medium{
-    height:275px;
+    height:300px;
 }
 
 .background-image-small{
-    height:200px;
+    height:270px;
 }
 
 
@@ -331,11 +341,17 @@ body {
     width: 100%;
 }
 
+.background-image-text-overlay-special{
+    position: absolute;
+    bottom: 25%;
+    width: 100%;
+}
+
 .background-image-text-center-group{
     display: block;
     text-align: center;
     position: relative;
-    width: 50%;
+    width: 60%;
     height: 100%;
     margin: 0 auto;
 }
