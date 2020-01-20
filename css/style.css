@@ -177,6 +177,67 @@ body {
     min-height: 300px;
 } 
 
+#links-section{
+    min-height: 300px;
+    background-color: #f3ebe3;
+    padding-left: 15%;
+    padding-right: 15%;
+    font-size: 0px;
+}
+
+#links-section ul{
+    list-style: none;
+    padding-left: 0px;
+}
+
+
+#links-section li div.links-spacer {
+    width: 50px;
+    height: 3px;
+    background-color: #c1c1c1;
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+
+
+#links-section span.links-header{
+    font-size: 18px;
+    color: #777777;
+
+}
+
+#links-section ul li {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+#links-section span.links-content a{
+    color: #552d00;
+    text-decoration: none;
+    font-size: 15px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+#links-section .link-images-row .col-2  img {
+    height: 8px;
+    display: block;
+    position: relative;
+}
+
+
+#links-section .link-images-row .col-4  img {
+    height: 20px;
+    display: block;
+    position: relative;
+}
+
+#links-section .link-images-row .col-6  img {
+    height: 40px;
+    display: block;
+    position: relative;
+}
+
 .testimonial-title {
     font-size: 18px;
     color:#777777;
@@ -361,6 +422,14 @@ body {
     vertical-align: top;
 }
 
+
+.col-2 {
+    width: 16.667%;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+}
+
 .col-3 {
     width: 25%;
     position: relative;
@@ -525,6 +594,11 @@ body {
     font-size: 14px;
     text-decoration-line: none;
 }
+
+
+
+
+
 
 
 
