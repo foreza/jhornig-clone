@@ -1,1 +1,33 @@
-/* TODO */
+#test-slider {
+    height: 500px;
+    width: 80%;
+    background-color: blue;
+ 
+}
+
+
+.slider{
+    height: 100%;
+    position: relative;
+    display: block;
+    border: 1px solid red;
+    margin: 0 auto;
+    /* overflow: hidden; */
+
+}
+
+
+.slider-container{
+    height: 100%;
+}
+
+
+.slider-content{
+    font-size: 50px;
+    height: 100%;
+    position: absolute;   
+    left: 0;
+    border: 1px solid black;
+}
+
+
