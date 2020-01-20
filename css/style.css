@@ -330,6 +330,47 @@ body {
     border-width: 0px;
 }
 
+
+
+#bottom-footer{
+    background-color: #372f2c;
+    width: 100%;
+    height: 80px;
+}
+
+#bottom-footer-link-group {
+    width: 75%;
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    padding-top: 15px;
+    text-align: center;
+}
+
+#bottom-footer-link-group a {
+    font-size: 12px;
+    text-decoration: none;
+    color: #777777;
+    margin-left: 3px;
+    margin-right: 3px;
+
+}
+
+#bottom-footer-copyright-group {
+    width: 50%;
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    padding-top: 15px;
+    text-align: center;
+}
+
+#bottom-footer-copyright-group span{
+    color: #777777;
+}
+
+
+
 /* General Classes */ 
 
 .row {
