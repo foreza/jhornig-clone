@@ -8,6 +8,43 @@
     width: 85%;
 }
 
+#ig-slider {
+    height: 300px;
+    width: 100%;
+}
+
+
+
+#top-slide-1-bg{
+    background-image: url(../images/EM_4610-Edit_LatteArt_2-1920x1280.jpg);
+}
+
+#top-slide-2-bg{
+    background-image: url(../images/jhornig-kaffeebar-interieur.jpg);
+}
+
+#top-slider-animate-left {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    z-index: 10;
+    top: 50%;
+    left: 2%;
+}
+
+#top-slider-animate-right {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    z-index: 10;
+    top: 50%;
+    right: 2%;
+}
+
+
+
+/* General Slider styles (DO NOT TOUCH */
+
 .slider{
     height: 100%;
     position: relative;
@@ -22,12 +59,72 @@
 }
 
 .slider-content{
-    font-size: 50px;
     height: 100%;
     position: absolute;   
     left: 0;
 }
 
+.slider-overlay-left-helper{
+    width: 400px;
+    margin-top: 150px;
+    margin-left: 120px;
+    text-align: center;
+}
+
+.slider-overlay-left-helper .row{
+    margin-top: 20px;
+    font-size: 0;
+}
+
+.slider-overlay-header{
+    font-size: 40px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #ffffff;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.slider-overlay-text {
+    font-size: 26px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #ffffff;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.slider-overlay-button {
+    height: 50px;
+    width: 90%;
+    font-size: 20px;
+    text-transform: uppercase;
+
+}
+
+.slider-overlay-button.button-fill{
+    background-color: #fafafa;
+    color: #777777;
+}
+
+.slider-overlay-button.button-clear{
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid #777777;
+
+}
+
+.bg-slider-overlay{
+    position: absolute;
+    z-index: 5;
+}
+
+.bg-slider-cover {
+    height: 100%;
+    width: 100%;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    position: relative;
+}
 
 
 
