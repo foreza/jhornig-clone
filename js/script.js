@@ -67,8 +67,8 @@ $(document).ready(function () {
 
     // Initialize the left / right indexes accordingly (should be the viewport)
 
-    sliderLeftIndex = 0;                 // Far left index
-    sliderRightIndex = numToDisplay;    // 
+    sliderLeftIndex = 0;                    // Index for left shifting
+    sliderRightIndex =- 1;                  // Index for right shifting
 
     console.log(`sliderLeftIndex is ${sliderLeftIndex}`);
     console.log(`sliderRightIndex is ${sliderRightIndex}`);
@@ -120,48 +120,39 @@ function getSliderContentForSliderWithID(sliderID){
 
 
 
-function adjustIndexForSlider(sliderID){
-
-}
-
-// Prepare the indexes for movement
+// Prepare the indexes for movement to LEFT
 function prepareLeftForSlider(sliderID){
 
     var indicesToMove = [];
 
     for (var i = 0; i <= numToDisplay; ++i ){
-
         var tIndex = sliderLeftIndex + i;
         console.log(`evaluating index: ${tIndex}`);
 
-        // Convert the indexes into the appropriate value
-        if (tIndex >= sliderMaxItems){
-            tIndex %= sliderMaxItems;
+        tIndex %= sliderMaxItems;
 
-            // Move the last item to the hidden region and set index
-            if (i == numToDisplay){
+        // Convert the indexes into the appropriate value
+
+        if (tIndex < 0){
+            tIndex += sliderMaxItems;
+        } 
+
+        // Move the last item to the hidden region and set index
+               if (i == numToDisplay){
                 console.log(`${sliderID}-slide-${tIndex} is shifting to right hidden region`);
                 $(`#${sliderID}-slide-${tIndex}`).css("left", `${rightHiddenRegion}px`);  
-                
             }
-
-            sliderLeftIndex
-
-        } 
 
         console.log(`pushing index: ${tIndex}`);
         indicesToMove.push(tIndex);
-        
-        
-
     }
 
 
-    sliderLeftIndex++;
+        sliderLeftIndex++;
+        sliderRightIndex++;
+
         console.log(`sliderRightIndex: ${sliderRightIndex}`);
         console.log(`sliderLeftIndex: ${sliderLeftIndex}`);
-
-
     
         return indicesToMove;
 
@@ -174,13 +165,11 @@ function slideLeftForSlider(sliderID){
 
     console.log(`indicesToMove: ${indicesToMove}`);    
 
-
     // Track the current indexes for the slider (get the object)
 
     for (var i = 0; i < indicesToMove.length; ++i){
 
         console.log(`moving: ${sliderID}-slide-${indicesToMove[i]}`);
-
 
         $(`#${sliderID}-slide-${indicesToMove[i]}`).animate({
             left: `-=${sliderContentWidth}`
@@ -190,13 +179,67 @@ function slideLeftForSlider(sliderID){
     }
 
 
+}
 
 
+function prepareRightForSlider(sliderID){
 
+    var indicesToMove = [];
+
+    for (var i = 0; i < numToDisplay + 1; ++i ){
+        var tIndex = sliderRightIndex + i;
+        console.log(`evaluating index: ${tIndex}`);
+
+        // Convert the indexes into the appropriate value
+        tIndex = tIndex % sliderMaxItems;
+
+        if (tIndex < 0){
+            tIndex += sliderMaxItems;
+        } 
+
+        // Move the first item to the hidden region and set index
+        if (i == 0){
+            console.log(`${sliderID}-slide-${tIndex} is shifting to right hidden region`);
+            $(`#${sliderID}-slide-${tIndex}`).css("left", `${leftHiddenRegion}px`);  
+            
+        }
+
+        console.log(`pushing index: ${tIndex}`);
+        indicesToMove.push(tIndex);
+        
+
+    }
+
+
+        sliderLeftIndex--;
+        sliderRightIndex--;
+        console.log(`sliderRightIndex: ${sliderRightIndex}`);
+        console.log(`sliderLeftIndex: ${sliderLeftIndex}`);
+
+
+    
+        return indicesToMove;
 
 }
 
 function slideRightForSlider(sliderID){
+
+    var indicesToMove = prepareRightForSlider(sliderID);
+
+    console.log(`indicesToMove: ${indicesToMove}`);    
+
+    // Track the current indexes for the slider (get the object)
+
+    for (var i = 0; i < indicesToMove.length; ++i){
+
+        console.log(`moving: ${sliderID}-slide-${indicesToMove[i]}`);
+
+        $(`#${sliderID}-slide-${indicesToMove[i]}`).animate({
+            left: `+=${sliderContentWidth}`
+          }, 300, function() {
+            //   console.log(`moved: ${sliderID}-slide-${indicesToMove[i]}`);
+          });
+    }
 
 
     
