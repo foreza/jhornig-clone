@@ -35,6 +35,7 @@
 
     ** TODO LIST: **
     ================
+    * Support being able to scroll multiple images at once (presently only scrolls once)
     * Allow for easier controls (for now, need to style/attach listeners to buttons myself)
     * Fix issue that occurs when the # of items in the slider = the number being scrolled
     * Further optimize the animation / don't depend on jQuery

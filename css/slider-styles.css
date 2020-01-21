@@ -1,20 +1,17 @@
-#test-slider {
+#top-slider {
     height: 500px;
-    width: 80%;
-    background-color: blue;
+    width: 100%;
 }
 
-#test-slider2 {
+#blog-slider {
     height: 300px;
-    width: 100%;
-    background-color: green;
+    width: 85%;
 }
 
 .slider{
     height: 100%;
     position: relative;
     display: block;
-    border: 1px solid red;
     margin: 0 auto;
     overflow: hidden;
 
@@ -29,7 +26,6 @@
     height: 100%;
     position: absolute;   
     left: 0;
-    border: 1px solid black;
 }
 
 

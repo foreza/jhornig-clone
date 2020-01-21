@@ -1,30 +1,41 @@
 
-var testSlider;
-var testSlider2;
+var topSlider;
+var blogSlider;
+var igSlider;
 
 
 $(document).ready(function () {
 
     
-    testSlider = configureSlider("test-slider", 3, 1);
-    testSlider2 = configureSlider("test-slider2", 6, 1);
+    topSlider = configureSlider("top-slider", 1, 1);
+    blogSlider = configureSlider("blog-slider", 3, 1);
+    igSlider = configureSlider("ig-slider", 6, 1);
 
 
-    $('#animate-left').click( function(){
-        slideLeftForSlider(testSlider)
+    $('#top-slider-animate-left').click( function(){
+        slideLeftForSlider(topSlider)
     });
 
-    $('#animate-right').click( function(){
-        slideRightForSlider(testSlider)
+    $('#top-slider-animate-right').click( function(){
+        slideRightForSlider(topSlider)
     });
 
-    $('#animate-left-2').click( function(){
-        slideLeftForSlider(testSlider2)
+    $('#blog-slider-animate-left').click( function(){
+        slideLeftForSlider(blogSlider)
     });
 
-    $('#animate-right-2').click( function(){
-        slideRightForSlider(testSlider2)
+    $('#blog-slider-animate-right').click( function(){
+        slideRightForSlider(blogSlider)
     });
+
+    $('#ig-slider-animate-left').click( function(){
+        slideLeftForSlider(igSlider)
+    });
+
+    $('#ig-slider-animate-right').click( function(){
+        slideRightForSlider(igSlider)
+    });
+
 
 
 });
