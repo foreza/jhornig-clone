@@ -2,9 +2,13 @@
     height: 500px;
     width: 80%;
     background-color: blue;
- 
 }
 
+#test-slider2 {
+    height: 300px;
+    width: 100%;
+    background-color: green;
+}
 
 .slider{
     height: 100%;
@@ -12,15 +16,13 @@
     display: block;
     border: 1px solid red;
     margin: 0 auto;
-    /* overflow: hidden; */
+    overflow: hidden;
 
 }
-
 
 .slider-container{
     height: 100%;
 }
-
 
 .slider-content{
     font-size: 50px;
@@ -29,5 +31,7 @@
     left: 0;
     border: 1px solid black;
 }
+
+
 
 
