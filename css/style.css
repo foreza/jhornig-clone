@@ -3,6 +3,20 @@ body {
     margin: 0px;
 }
 
+#top-slider {
+    height: 500px;
+    width: 100%;
+}
+
+#blog-slider {
+    height: 300px;
+    width: 85%;
+}
+
+#ig-slider {
+    height: 300px;
+    width: 100%;
+}
 
 #top-bar{
     background-color: #372f2c;
@@ -26,8 +40,6 @@ body {
     padding-bottom: 20px;
     font-size: 12px;
 }
-
-
 
 
 
@@ -104,6 +116,8 @@ body {
     height: 500px;
     overflow: hidden;
 }
+
+
 
 
 #image-section-1 {
@@ -236,6 +250,7 @@ body {
     display: block;
     position: relative;
 }
+
 
 .testimonial-title {
     font-size: 18px;
@@ -376,83 +391,6 @@ body {
     width: 100%;
     position: relative;
 }
-
-
-
-
-
-.row-ca {
-    border: 1px solid black;
-    width: 1700px;
-    position: absolute;
-    height: 300px;
-    font-size: 0;
-    transition:2s;
-   -webkit-transition:2s;
-    -moz-transition:2s;
-    left:-12%;
-}
-
-.row-ca {
-  left:calc(-24% - 33%);
-}
-
-
-
-#left-mask-ca{
-    border: 1px solid black;
-
-    position: absolute;
-    display: relative;
-    left: 0;
-    background-color: #ffffff;
-
-    height: 300px;
-    width: 25%;
-    z-index: 100;
-}
-
-#right-mask-ca{
-    border: 1px solid black;
-
-    position: absolute;
-    display: relative;
-    left: 75%;
-    background-color: #ffffff;
-
-    height: 300px;
-    width: 25%;
-    z-index: 100;
-}
-
-.scroll-ca-image-container {
-    height: 300px;
-    z-index: 1;
-}
-
-#image-hidden-left {
-    background-color: aqua;
-}
-
-#image-hidden-right {
-    background-color: aquamarine;
-}
-
-#image-center {
-    background-color: chartreuse;
-}
-
-.image-ca {
-    height: 200px;
-    background-image: url(../images/JHornig-Caffe-Crema-Classico.jpg);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position-x: center;
-    background-position-y: center;
-
-}
-
-
 
 
 .col-6 {
@@ -642,98 +580,5 @@ body {
 
 
 
-/* Image Assets */
-
-
-/* Image Section 1 */ 
-
-#image-section-1-left {
-    background-image: url(../images/Cold-Brew-Dose-Drink.jpg);
-}
-
-#image-section-1-center {
-    background-image: url(../images/HOR_gastro.jpg);
-}
-
-#image-section-1-right {
-    background-image: url(../images/JHornig-Kaffee-fuers-Buero.jpg);
-}
-
-
-
-
-/* Product Section 1 */
-
-#product-section-1-1 {
-    background-image: url(../images/JHornig-Spezial-Ganze-Bohne.jpg);
-}
-
-#product-section-1-2 {
-    background-image: url(../images/JHornig-Caffe-Crema-Classico.jpg);
-
-}
-
-#product-section-1-3 {
-    background-image: url(../images/JHornig-Caffe-Crema-Intenso.jpg);
-
-}
-
-#product-section-1-4 {
-    background-image: url(../images/JHornig-Entcoff-Ganze-Bohne.jpg);
-}
-
-
-
-
-
-/* Image Section 2 */
-
-#image-section-2-left-top {
-    background-image: url(../images/JHornig-Kaffeebar-1070-Wien.jpg);
-}
-
-#image-section-2-left-bottom-left {
-    background-image: url(../images/Wie-wir-bei-JHornig-roesten.jpg);
-}
-
-#image-section-2-left-bottom-right {
-    background-image: url(../images/JHornig-Kaffeemobil.jpg);
-}
-
-#image-section-2-right-left {
-    background-image: url(../images/JHornig-Barista-Kurse.jpg);
-}
-
-#image-section-2-right-right-top {
-    background-image: url(../images/JHornig-Direct-Trade.jpg);
-}
-
-#image-section-2-right-right-bottom {
-    background-image: url(../images/JHornig-Kaffee-richtig-zubereiten.jpg);
-}
-
-
-
-
-/* Product Section 2 */
-
-#product-section-2-1 {
-  background-image: url(../images/JHornig-Bio-Fruechte-Tee.jpeg); 
-
-}
-
-#product-section-2-2 {
-    background-image: url(../images/JHornig-Bio-Wilde-Fruechte-Tee.jpeg);
-
-}
-
-#product-section-2-3 {
-    background-image: url(../images/JHornig-Bio-Pfefferminze-Tee.jpeg);
-
-}
-
-#product-section-2-4 {
-    background-image: url(../images/JHornig-Bio-Orange-Tee.jpeg);
-}
 
 

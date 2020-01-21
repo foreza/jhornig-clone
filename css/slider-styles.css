@@ -1,49 +1,7 @@
-#top-slider {
-    height: 500px;
-    width: 100%;
-}
 
-#blog-slider {
-    height: 300px;
-    width: 85%;
-}
+/* This file contains generic slider helpers and styles */ 
+/* TODO: Clean this up */
 
-#ig-slider {
-    height: 300px;
-    width: 100%;
-}
-
-
-
-#top-slide-1-bg{
-    background-image: url(../images/EM_4610-Edit_LatteArt_2-1920x1280.jpg);
-}
-
-#top-slide-2-bg{
-    background-image: url(../images/jhornig-kaffeebar-interieur.jpg);
-}
-
-#top-slider-animate-left {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    z-index: 10;
-    top: 50%;
-    left: 2%;
-}
-
-#top-slider-animate-right {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    z-index: 10;
-    top: 50%;
-    right: 2%;
-}
-
-
-
-/* General Slider styles (DO NOT TOUCH */
 
 .slider{
     height: 100%;
@@ -64,14 +22,69 @@
     left: 0;
 }
 
-.slider-overlay-left-helper{
+.bg-slider-overlay{
+    position: absolute;
+    z-index: 5;
+    width: 100%;
+    padding-top: 150px;
+}
+
+.bg-slider-filter{
+    width: 100%;
+    background-color: black;
+}
+
+.slider-overlay-promo-helper {
+    position: absolute;
+    top: 0%;
+    left: 50%;
     width: 400px;
-    margin-top: 150px;
+    margin-left: -200px;
+
+}
+
+.slider-overlay-price-display {
+    width: 100px;
+    border: 2px dotted white;
+    border-radius: 100px;
+    height: 100px;
+    position: absolute;
+    z-index: 10;
+    right: 40px;
+    top: 40px;
+    background: red;
+}
+
+.slider-overlay-price-display p{
+    color: #ffffff;
+    font-size: 50px;
+    margin-top: 19px;
+    margin-bottom: 0px;
+}
+
+.slider-overlay-promo-helper img {
+    width: 300px;
+    display: block;
+    position: relative;
+    margin: 0 auto;
+}
+
+.slider-overlay-left-helper{
     margin-left: 120px;
+
+    width: 400px;
+    float: left;
     text-align: center;
 }
 
-.slider-overlay-left-helper .row{
+.slider-overlay-right-helper{
+    margin-right: 120px;
+    width: 400px;
+    float: right;
+    text-align: center;
+}
+
+.slider-overlay-left-helper .row, .slider-overlay-right-helper .row{
     margin-top: 20px;
     font-size: 0;
 }
@@ -97,7 +110,9 @@
     width: 90%;
     font-size: 20px;
     text-transform: uppercase;
-
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
 }
 
 .slider-overlay-button.button-fill{
@@ -105,17 +120,25 @@
     color: #777777;
 }
 
+.slider-overlay-button.button-fill:hover{
+    background-color: #777777;
+    color: #fafafa;
+}
+
 .slider-overlay-button.button-clear{
     background-color: transparent;
     color: #ffffff;
-    border: 2px solid #777777;
-
+    border: 2px solid #ffffff;
 }
 
-.bg-slider-overlay{
-    position: absolute;
-    z-index: 5;
+.slider-overlay-button.button-clear:hover{
+    background-color: #fafafa;
+    color: #777777;
 }
+
+
+
+/* Background image cover styles */ 
 
 .bg-slider-cover {
     height: 100%;
@@ -127,4 +150,33 @@
 }
 
 
+/* Slider button Styles */ 
 
+.slider-button-style-1 {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    z-index: 10;
+    top: 50%;
+    border-radius: 100px;
+    background: transparent;
+    color: #ffffff;
+    font-size: 20px;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
+
+/* TODO: Animate this */
+.slider-button-style-1:hover {
+    color: #ffffff;
+    background-color: #552d00;      /* Wrong color */
+}
+
+.slider-button-right {
+    right: 2%;
+}
+
+.slider-button-left {
+    left: 2%;
+}

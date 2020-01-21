@@ -35,6 +35,7 @@
 
     ** TODO LIST: **
     ================
+    * API is inverted. I fixed this temporarily by renaming the top level API...
     * Support being able to scroll multiple images at once (presently only scrolls once)
     * Allow for easier controls (for now, need to style/attach listeners to buttons myself)
     * Fix issue that occurs when the # of items in the slider = the number being scrolled
@@ -45,7 +46,7 @@
 
 
 // Move the slider to the left
-function slideLeftForSlider(sliderObject) {
+function slideRightForSlider(sliderObject) {
 
     var indicesToMove = prepareLeftForSlider(sliderObject);
 
@@ -63,7 +64,7 @@ function slideLeftForSlider(sliderObject) {
 
 
 // Move the slider to the right
-function slideRightForSlider(sliderObject) {
+function slideLeftForSlider(sliderObject) {
 
     var indicesToMove = prepareRightForSlider(sliderObject);
 
