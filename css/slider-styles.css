@@ -9,7 +9,6 @@
     display: block;
     margin: 0 auto;
     overflow: hidden;
-
 }
 
 .slider-container{
@@ -22,6 +21,7 @@
     left: 0;
 }
 
+
 .bg-slider-overlay{
     position: absolute;
     z-index: 5;
@@ -31,7 +31,6 @@
 
 .bg-slider-filter{
     width: 100%;
-    background-color: black;
 }
 
 .slider-overlay-promo-helper {
@@ -152,6 +151,8 @@
 
 /* Slider button Styles */ 
 
+
+
 .slider-button-style-1 {
     position: absolute;
     width: 40px;
@@ -166,6 +167,7 @@
     overflow: hidden;
     outline: none;
 }
+
 
 /* TODO: Animate this */
 .slider-button-style-1:hover {
