@@ -43,22 +43,37 @@
     
 
 */
-
+const carouselConfig = {};
 
 // Move the slider to the left
 function slideRightForSlider(sliderObject) {
 
-    var indicesToMove = prepareLeftForSlider(sliderObject);
 
     // Track the current indexes for the slider (get the object)
-
-    for (var i = 0; i < indicesToMove.length; ++i) {
-
-        $(`#${sliderObject.identifier}-slide-${indicesToMove[i]}`).animate({
-            left: `-=${sliderObject.sliderContentWidth}`
-        }, 100, function () {
-        });
-    }
+        var indicesToMove = prepareRightForSlider(sliderObject);
+        const half = Math.floor(indicesToMove.length / 2);
+        
+        for (let i = 0; i < indicesToMove.length; ++i) {
+            const child = $(sliderObject.children[indicesToMove[i]]);
+            console.log(indicesToMove[i], child[0]);
+            // console.log("TCL: slideRightForSlider -> child", child[0])
+            // console.log("TCL: slideRightForSlider -> `-=${sliderObject.sliderContentWidth * sliderObject.numToDisplay}`", `-=${sliderObject.sliderContentWidth * sliderObject.numToDisplay}`)
+            if (i >= half) {
+                const offset = sliderObject.sliderContentWidth * (i - half);
+                // console.log("TCL: slideRightForSlider -> offset", offset)
+                const left = sliderObject.viewPortWidth + offset;
+                // console.log("TCL: slideRightForSlider -> left", left)
+                child.css('left', left)
+            }
+            child.animate({
+                left: `-=${sliderObject.sliderContentWidth * sliderObject.numToDisplay}`
+            }, {
+                duration: 500,
+                start: function() {
+                    
+                }
+            });   
+        }
 
 }
 
@@ -66,7 +81,7 @@ function slideRightForSlider(sliderObject) {
 // Move the slider to the right
 function slideLeftForSlider(sliderObject) {
 
-    var indicesToMove = prepareRightForSlider(sliderObject);
+    var indicesToMove = prepareLeftForSlider(sliderObject);
 
     // Track the current indexes for the slider (get the object)
 
@@ -85,40 +100,32 @@ function slideLeftForSlider(sliderObject) {
 
 
 // Prepare the indexes for movement to LEFT
-function prepareLeftForSlider(sliderObject) {
-
-    var indicesToMove = [];
-
-    for (var i = 0; i <= sliderObject.numToDisplay; ++i) {
-        var tIndex = sliderObject.sliderLeftIndex + i;
-
-        tIndex %= sliderObject.sliderMaxItems;
-
-        // Convert the indexes into the appropriate value
-
-        if (tIndex < 0) {
-            tIndex += sliderObject.sliderMaxItems;
-        }
-
-        // Move the last item to the hidden region and set index
-        if (i == sliderObject.numToDisplay) {
-            $(`#${sliderObject.identifier}-slide-${tIndex}`).css("left", `${sliderObject.rightHiddenRegion}px`);
-        }
-
-        indicesToMove.push(tIndex);
-    }
-
-    sliderObject.sliderLeftIndex++;
-    sliderObject.sliderRightIndex++;
-
-    return indicesToMove;
-
-}
-
-// Prepare the indexes for movement to RIGHT
 function prepareRightForSlider(sliderObject) {
 
     var indicesToMove = [];
+    let tIndex = sliderObject.sliderLeftIndex;
+    console.log("TCL: prepareRightForSlider -> tIndex", tIndex)
+    indicesToMove.push(tIndex);
+    for (var i = 1; i < sliderObject.numToDisplay * 2; ++i) {
+        tIndex = (tIndex + 1) % sliderObject.children.length;
+        console.log(`Assessing: ${tIndex}`);
+        indicesToMove.push(tIndex);
+    }
+
+    sliderObject.sliderLeftIndex = indicesToMove[(indicesToMove.length/2) ];
+    console.log("TCL: prepareRightForSlider -> sliderObject.sliderLeftIndex", sliderObject.sliderLeftIndex)
+    sliderObject.sliderRightIndex = indicesToMove[0];
+
+    console.log(indicesToMove);
+
+    return indicesToMove;
+}
+
+// Prepare the indexes for movement to RIGHT
+function prepareLeftForSlider(sliderObject) {
+
+    var indicesToMove = [];
+    const targetLeft = `${sliderObject.leftHiddenRegion}px`;
 
     for (var i = 0; i < sliderObject.numToDisplay + 1; ++i) {
         var tIndex = sliderObject.sliderRightIndex + i;
@@ -132,13 +139,10 @@ function prepareRightForSlider(sliderObject) {
 
         // Move the first item to the hidden region and set index
         if (i == 0) {
-            $(`#${sliderObject.identifier}-slide-${tIndex}`).css("left", `${sliderObject.leftHiddenRegion}px`);
-
+            $(sliderObject.children[tIndex]).css("left", targetLeft);
         }
 
         indicesToMove.push(tIndex);
-
-
     }
 
     sliderObject.sliderLeftIndex--;
@@ -155,6 +159,9 @@ function prepareRightForSlider(sliderObject) {
 function configureSlider(sliderIdentifier, numToDisplay, numToScroll) {
 
     console.log(`[SLIDER-SENSEI] configureSlider called for ${sliderIdentifier}`);
+    if (carouselConfig[sliderIdentifier] === undefined) {
+        carouselConfig[sliderIdentifier] = [];
+    }
 
     var sliderObj = {
         "identifier": sliderIdentifier,                // thisSliderID, use to generate refForSliderContainer and refForSliderContent;   
@@ -166,15 +173,32 @@ function configureSlider(sliderIdentifier, numToDisplay, numToScroll) {
         "sliderContentWidth": 1000,                     // Calculated by taking the viewPortWidth / display number
         "sliderMaxItems": 10,                           // Items scanned from the DOM (slider-content)
         "leftHiddenRegion": 0,                          // Pixel value of the region on the left for hiding objects
-        "rightHiddenRegion": 0                         // Pixel value of the region on the right for hiding objects
+        "rightHiddenRegion": 0,                         // Pixel value of the region on the right for hiding objects
+        "children": [],
     }
+
+    carouselConfig[sliderIdentifier] = sliderObj;
 
     // Get the slider content
 
     refForSliderContainer = getSliderContainerForSliderWithID(sliderObj.identifier);
     refForSliderContent = getSliderContentForSliderWithID(sliderObj.identifier);
 
-    sliderObj.sliderMaxItems = refForSliderContent.length;
+    // Duplicate the amount of content:
+
+    var tLen = refForSliderContent.length;
+    let children = refForSliderContainer.find('.slider-content');
+    
+    if (children.length < numToDisplay * 2) {
+        const content = refForSliderContainer.html(); // refForSliderContainer[0].innerHTML;
+        refForSliderContainer.append(content);
+        children = refForSliderContainer.find('.slider-content');
+    }
+
+    sliderObj.children = children;
+
+
+    sliderObj.sliderMaxItems = children.length;
 
     // Get the viewport size so we can use this later for our calculations
     sliderObj.viewPortWidth = refForSliderContainer.width();
@@ -182,33 +206,25 @@ function configureSlider(sliderIdentifier, numToDisplay, numToScroll) {
     // Determine how many items should be in the display (assume 3 for testing)
     sliderObj.sliderContentWidth = sliderObj.viewPortWidth / sliderObj.numToDisplay;
 
-
     // Set an id for each slider and also set the width %
-    for (var i = 0; i < refForSliderContent.length; ++i) {
-
-        var tSlideID = `${sliderObj.identifier}-slide-${i}`;
-
-        $(refForSliderContent[i]).attr('id', tSlideID);
-        $(refForSliderContent[i]).css("width", `${sliderObj.sliderContentWidth}px`);
-
-    }
-
-
+    
     // Place the first 'X' amount of slides into the appropriate position based off of numToDisplay
     // Remaining items should be sorted into a 'left' or 'right' overflow zone. We'll choose 'left'
     // Calculate where the end zones should be (for our hidden left and right regions)
 
-    sliderObj.leftHiddenRegion = -(sliderObj.sliderContentWidth);
-    sliderObj.rightHiddenRegion = sliderObj.viewPortWidth;
+    sliderObj.leftHiddenRegion = sliderObj.sliderContentWidth * -1;
+    sliderObj.rightHiddenRegion = sliderObj.viewPortWidth+sliderObj.sliderContentWidth;
 
-    for (var i = 0; i < refForSliderContent.length; ++i) {
+    const targetWidth = `${sliderObj.sliderContentWidth}px`;
+    for (var i = 0; i < children.length; ++i) {
+        const child = $(children[i]);
+        const targetLeft = (i < numToDisplay)
+                            ? `${sliderObj.sliderContentWidth * i}px`
+                            : `${sliderObj.rightHiddenRegion}px`;
 
-        if (i < sliderObj.numToDisplay) {
-            $(refForSliderContent[i]).css("left", `${sliderObj.sliderContentWidth * i}px`);
-        } else {
-            $(refForSliderContent[i]).css("left", `${sliderObj.rightHiddenRegion}px`);
-        }
-
+        child
+            .css('width', targetWidth)
+            .css('left', targetLeft);
     }
 
     return sliderObj;
