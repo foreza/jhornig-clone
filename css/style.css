@@ -9,7 +9,7 @@ body {
 }
 
 #blog-slider {
-    height: 300px;
+    height: 400px;
     width: 85%;
 }
 
@@ -161,9 +161,8 @@ body {
     position: relative;
     display: block;
     margin: 0 auto;
-    height: 270px;
+    height: 400px;
     overflow: hidden;
-    background: grey;
 }
 
 #instagram-image-carousel-section {
