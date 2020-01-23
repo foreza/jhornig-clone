@@ -1,0 +1,76 @@
+.background-modal {
+    position: absolute;
+    z-index: 99;
+    width: 100%;
+    height: 100%
+}
+
+.modal-content{
+    height: 500px;
+    width: 600px;
+    border: 2px dashed white;
+    background-image: url(../images/Die-Lagerung-von-Kaffee-im-Buero-.jpg);
+    background-repeat: no-repeat;
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    z-index: 100;
+    margin-top: 70px;
+}
+
+.modal-overlay-background{
+    background-color: black;
+    opacity: 0.5;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.modal-close-button{
+    float: right;
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 40px;
+}
+
+.modal-content .modal-box{
+    width: 300px;
+    margin-left: 50px;
+}
+
+.modal-content-header{
+    color: white;
+    font-size: 30px;
+
+}
+
+.modal-content-text{
+    color: white;
+    font-size: 20px;
+}
+
+.modal-form #modal-email-input{
+    width: 100%;
+    font-size: 14px;
+    height: 30px;
+    color: #ffffff;
+}
+
+.modal-select span{
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.modal-form .modal-submit button{
+    background-color: #552d00;
+    text-transform: uppercase;
+    height: 40px;
+    padding-right: 20px;
+    padding-left: 20px;
+    font-size: 16px;
+    color: white;
+    display: block;
+    position: relative;
+    border-width: 0px;
+}

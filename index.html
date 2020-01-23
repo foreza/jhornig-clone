@@ -10,18 +10,54 @@
     <link rel="stylesheet" href="css/menu-hover-styles.css" />
     <link rel="stylesheet" href="css/slider-styles.css" />
     <link rel="stylesheet" href="css/bg-images.css" />
-
+    <link rel="stylesheet" href="css/modal.css" />
 
 </head>
 
 <body>
 
   
+    <div id="newsletter-modal" class="background-modal">
+
+        <div class="modal-overlay-background">
+            <button class="modal-close-button">X</button>
+        </div>
+
+        <div class="modal-content">
+            <div class="modal-box">
+                <p class="modal-content-header">5 € GUTSCHEIN FÜR DICH</p>
+                <p class="modal-content-text">Melde dich jetzt für unseren Newsletter an und erhalte einen 5 € Gutschein für deine erste Bestellung!</p>
+            <div class="modal-form">
+                <div>
+                    <input id="modal-email-input" type="email" placeholder="Deine E-Mail-Adresse">
+                </div>
+                <div class="modal-select">
+                    <input class="modal-checkbox" type="checkbox">
+                    <label id="modal-newsletter-checkbox-text" for="modal-newsletter-checkbox">
+                        <span>Ich habe die Datenschutzerklärung gelesen und akzeptiert</span>
+                    </label>
+                </div>
+                <div class="modal-submit">
+                    <button>ANMELDEN</button>
+                </div>
+                  
+            </div>
+                
+            </div>
+            </div>
+            
+            
+            
+        </div>
+
+       
+
+
+    </div>
 
 
 
     <header>
-
 
     
 
@@ -1270,6 +1306,7 @@
 
     <script src="js/jquery-3.4.1.js"></script>
     <script src="js/slider.js"></script>
+    <script src="js/modal.js"></script>
     <script src="js/script.js"></script>
 
 
