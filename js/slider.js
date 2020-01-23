@@ -35,17 +35,15 @@
 
     ** TODO LIST: **
     ================
-    * API is inverted. I fixed this temporarily by renaming the top level API...
-    * Support being able to scroll multiple images at once (presently only scrolls once)
+    * Support being able to scroll multiple images at once (presently only scrolls once) - in progress, done for slide RIGHT
     * Allow for easier controls (for now, need to style/attach listeners to buttons myself)
-    * Fix issue that occurs when the # of items in the slider = the number being scrolled
     * Further optimize the animation / don't depend on jQuery
+    * Allow for passing in the slider animation speed as a param
+    * Convert more of the config function into smaller util functions
     
 
 */
-
-// Store a reference to the carousel config
-const carouselConfig = {};                      
+                  
 
 
 
@@ -158,7 +156,7 @@ function prepareLeftForSlider(sliderObject) {
         var tIndex = sliderObject.sliderRightIndex + i;
 
         // Convert the indexes into the appropriate value
-        tIndex = tIndex % sliderObject.sliderMaxItems;
+        // tIndex = tIndex % sliderObject.sliderMaxItems;
 
         if (tIndex < 0) {
             tIndex += sliderObject.sliderMaxItems;
@@ -186,68 +184,56 @@ function prepareLeftForSlider(sliderObject) {
 function configureSlider(sliderIdentifier, numToDisplay, numToScroll) {
 
     console.log(`[SLIDER-SENSEI] configureSlider called for ${sliderIdentifier}`);
-    if (carouselConfig[sliderIdentifier] === undefined) {
-        carouselConfig[sliderIdentifier] = [];
-    }
 
     var sliderObj = {
-        "identifier": sliderIdentifier,                // thisSliderID, use to generate refForSliderContainer and refForSliderContent;   
+        "identifier": sliderIdentifier,                // The unique ID for the slider
         "numToDisplay": numToDisplay,                  // Note: # of DOM nodes should be > than numToDisplay
         "numToScroll": numToScroll,                    // Note: Currently only supports one for now
         "sliderLeftIndex": 0,                          // Index for tracking slider's next movement to left  
         "sliderRightIndex": -1,                        // Index for tracking slider's next movement to right 
         "viewPortWidth": 1000,                         // Calculated by taking the container width
         "sliderContentWidth": 1000,                     // Calculated by taking the viewPortWidth / display number
-        "sliderMaxItems": 10,                           // Items scanned from the DOM (slider-content)
-        "leftHiddenRegion": 0,                          // Pixel value of the region on the left for hiding objects
-        "rightHiddenRegion": 0,                         // Pixel value of the region on the right for hiding objects
-        "children": [],
+        "children": [],                                 // Store a reference to all slides as 'children' in the sliderObject
     }
 
-    carouselConfig[sliderIdentifier] = sliderObj;
 
-    // Get the slider content
 
+    // Get a reference to the slider content using the identifier
     refForSliderContainer = getSliderContainerForSliderWithID(sliderObj.identifier);
-    refForSliderContent = getSliderContentForSliderWithID(sliderObj.identifier);
 
-    // Duplicate the amount of content:
-
-    var tLen = refForSliderContent.length;
+    // Get all children sliders that presently exist
     let children = refForSliderContainer.find('.slider-content');
     
+    // Duplicate the amount of children nodes if we don't have enough to comfortably wrap around
     if (children.length < numToDisplay * 2) {
-        const content = refForSliderContainer.html(); // refForSliderContainer[0].innerHTML;
+        const content = refForSliderContainer.html();
         refForSliderContainer.append(content);
+
+        // Update the reference so we now include the new additional children we just created
         children = refForSliderContainer.find('.slider-content');
     }
 
     sliderObj.children = children;
 
-
-    sliderObj.sliderMaxItems = children.length;
-
     // Get the viewport size so we can use this later for our calculations
     sliderObj.viewPortWidth = refForSliderContainer.width();
 
-    // Determine how many items should be in the display (assume 3 for testing)
+    // Determine the uniform width for each of the slider objects
     sliderObj.sliderContentWidth = sliderObj.viewPortWidth / sliderObj.numToDisplay;
 
-    // Set an id for each slider and also set the width %
-    
     // Place the first 'X' amount of slides into the appropriate position based off of numToDisplay
-    // Remaining items should be sorted into a 'left' or 'right' overflow zone. We'll choose 'left'
-    // Calculate where the end zones should be (for our hidden left and right regions)
+    // Remaining items should be sorted into a overflow zone. We'll choose to put far off in the - area
+    const hiddenDisplayRegion = sliderObj.sliderContentWidth * -1;
 
-    sliderObj.leftHiddenRegion = sliderObj.sliderContentWidth * -1;
-    sliderObj.rightHiddenRegion = sliderObj.viewPortWidth+sliderObj.sliderContentWidth;
-
+    // Format target width string so we can use it
     const targetWidth = `${sliderObj.sliderContentWidth}px`;
+
+    // Loop through all the children. Place the first children in the viewport, and the rest off screen.
     for (var i = 0; i < children.length; ++i) {
         const child = $(children[i]);
         const targetLeft = (i < numToDisplay)
                             ? `${sliderObj.sliderContentWidth * i}px`
-                            : `${sliderObj.rightHiddenRegion}px`;
+                            : `${hiddenDisplayRegion}px`;
 
         child
             .css('width', targetWidth)
@@ -258,12 +244,8 @@ function configureSlider(sliderIdentifier, numToDisplay, numToScroll) {
 }
 
 
-// Config Utility functions (TODO: Convert more of the above into smaller util functions)
+// Config Utility functions 
 
 function getSliderContainerForSliderWithID(sliderID) {
     return $(`#${sliderID} .slider-container`);
-}
-
-function getSliderContentForSliderWithID(sliderID) {
-    return $(`#${sliderID} .slider-container .slider-content`);
 }
