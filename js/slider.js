@@ -54,8 +54,6 @@ function slideRightForSlider(sliderObject) {
         // Get the halfway point for the indices array (rounding down)
         // Note: The total indices array length included indices for sliders sliding into view, and also out of view. 
         const half = Math.floor(indicesToMove.length / 2);
-        console.log(`half: ${half}`);
-
 
         // Loop through the slider indices and animate each slider
         for (let i = 0; i < indicesToMove.length; ++i) {
@@ -116,9 +114,6 @@ function slideLeftForSlider(sliderObject) {
         // Obtain a reference to the corresponding slider given the provided index
         const child = $(sliderObject.children[indicesToMove[i]]);
 
-        console.log(`working on child: ${[indicesToMove[i]]} with half: ${half}`)  ;
-
-
         // If we are GREATER than the halfway point, this tells us that we are looking at sliders that are sliding INTO the view.
         if (i >= half) {
 
@@ -126,10 +121,11 @@ function slideLeftForSlider(sliderObject) {
             // As we increase the iterator (i), we want to increase the multiplier.
             const offset = sliderObject.sliderContentWidth * (i - half + 1);
             
+            // For a left shift, the offset should be negative.
             const left = offset * -1;
 
             // The child then is moved into position, effectively 'staging' it for animation.
-            // Subsequent children would be placed further and further away for a RIGHT slide.
+            // Subsequent children would be placed further and further starting from the left edge for a LEFT slide.
             child.css('left', left)
 
         }
@@ -145,7 +141,7 @@ function slideLeftForSlider(sliderObject) {
         });   
     }
         
-// We need to update the new slider object left and right indexes after movement.
+        // We need to update the new slider object left and right indexes after movement.
         // The left slider index should be updated to point to the first element that was scrolled in from off-screen
         sliderObject.sliderLeftIndex = indicesToMove[indicesToMove.length-1];
         sliderObject.sliderRightIndex = indicesToMove[half];
@@ -175,6 +171,7 @@ function prepareRightIndicesForSlider(sliderObject) {
     indicesToMove.push(tIndex);
 
     for (let i = 0; i < numOfIndicesToShift - 1; ++i) {
+
         // We want to 'wrap' around the index so we don't animate something that is out of bounds
         // Increment the index, and then only store the remainder after performing a modulo
         tIndex = (tIndex + 1) % sliderObject.children.length;
@@ -192,7 +189,7 @@ function prepareLeftIndicesForSlider(sliderObject) {
     // We want to animate double the amount that is shown in the viewport for a smooth animation.            
     let numOfIndicesToShift =  sliderObject.numToDisplay * 2;   
 
-
+    // Create an initial 'tIndex' so we can freely increment the indices for our array.
     let tIndex = sliderObject.sliderRightIndex;
 
     // sliderRightIndex always represents the index of the slider currently visible furthest to the right
@@ -201,19 +198,19 @@ function prepareLeftIndicesForSlider(sliderObject) {
     indicesToMove.push(tIndex);
 
      for (let i = 0; i < numOfIndicesToShift - 1; ++i) {
+
         // We want to 'wrap' around the index so we don't animate something that is out of bounds
         // Increment the index, and then only store the remainder after performing a modulo
 
         tIndex = (tIndex - 1) % sliderObject.children.length;
 
+        // Do a negative indices check. If we generate a negative index, instead, set it to the maximum length of all the children - 1
         if (tIndex < 0){
             tIndex = sliderObject.children.length - 1;
         }
 
         indicesToMove.push(tIndex);
     }
-
-    console.log(`indicesToMove: ${indicesToMove}`);
 
     return indicesToMove;
 

@@ -9,12 +9,12 @@ body {
 }
 
 #blog-slider {
-    height: 400px;
+    height: 100%;
     width: 85%;
 }
 
 #ig-slider {
-    height: 300px;
+    height: 100%;
     width: 100%;
 }
 
@@ -170,9 +170,8 @@ body {
     position: relative;
     display: block;
     margin: 0 auto;
-    height: 200px;
+    height: 225px;
     overflow: hidden;
-    background: grey;
 }
 
 #testimonials-columns-section{
