@@ -45,8 +45,6 @@
 */
                   
 
-
-
 // Animates the slider to the right given a sliderObject reference
 function slideRightForSlider(sliderObject) {
 
@@ -56,7 +54,9 @@ function slideRightForSlider(sliderObject) {
         // Get the halfway point for the indices array (rounding down)
         // Note: The total indices array length included indices for sliders sliding into view, and also out of view. 
         const half = Math.floor(indicesToMove.length / 2);
-        
+        console.log(`half: ${half}`);
+
+
         // Loop through the slider indices and animate each slider
         for (let i = 0; i < indicesToMove.length; ++i) {
 
@@ -93,7 +93,10 @@ function slideRightForSlider(sliderObject) {
          // We need to update the new slider object left and right indexes after movement.
         // The left slider index should be updated to point to the first element that was scrolled in from off-screen
         sliderObject.sliderLeftIndex = indicesToMove[half];
-        // sliderObject.sliderRightIndex = indicesToMove[0];        // We will need to do something about this later 
+        sliderObject.sliderRightIndex =  indicesToMove[indicesToMove.length-1]; 
+
+        console.log(`Left Index: ${sliderObject.sliderLeftIndex}`)
+        console.log(`Right Index: ${sliderObject.sliderRightIndex}`)
 
 }
 
@@ -102,18 +105,53 @@ function slideRightForSlider(sliderObject) {
 // Animates the slider to the LEFT given a sliderObject reference
 function slideLeftForSlider(sliderObject) {
 
-    var indicesToMove = prepareLeftForSlider(sliderObject);
+    var indicesToMove = prepareLeftIndicesForSlider(sliderObject);
 
-    // Track the current indexes for the slider (get the object)
+    // Get the halfway point for the indices array (rounding down)
+    // Note: The total indices array length included indices for sliders sliding into view, and also out of view. 
+    const half = Math.floor(indicesToMove.length / 2);
 
-    for (var i = 0; i < indicesToMove.length; ++i) {
+    for (let i = 0; i < indicesToMove.length; ++i) {
 
-        $(`#${sliderObject.identifier}-slide-${indicesToMove[i]}`).animate({
-            left: `+=${sliderObject.sliderContentWidth}`
-        }, 100, function () {
-        });
+        // Obtain a reference to the corresponding slider given the provided index
+        const child = $(sliderObject.children[indicesToMove[i]]);
+
+        console.log(`working on child: ${[indicesToMove[i]]} with half: ${half}`)  ;
+
+
+        // If we are GREATER than the halfway point, this tells us that we are looking at sliders that are sliding INTO the view.
+        if (i >= half) {
+
+            // Calculate the offset given the content width of the slider
+            // As we increase the iterator (i), we want to increase the multiplier.
+            const offset = sliderObject.sliderContentWidth * (i - half + 1);
+            
+            const left = offset * -1;
+
+            // The child then is moved into position, effectively 'staging' it for animation.
+            // Subsequent children would be placed further and further away for a RIGHT slide.
+            child.css('left', left)
+
+        }
+
+        // Animate all children by a uniform amount
+        // This amount is the width of the viewport.
+        child.animate({
+            left: `+=${sliderObject.viewPortWidth}`
+        }, {
+            duration: 500, function (){
+                // Animation done.
+            }
+        });   
     }
+        
+// We need to update the new slider object left and right indexes after movement.
+        // The left slider index should be updated to point to the first element that was scrolled in from off-screen
+        sliderObject.sliderLeftIndex = indicesToMove[indicesToMove.length-1];
+        sliderObject.sliderRightIndex = indicesToMove[half];
 
+        console.log(`Left Index: ${sliderObject.sliderLeftIndex}`)
+        console.log(`Right Index: ${sliderObject.sliderRightIndex}`)
 
 
 }
@@ -147,31 +185,35 @@ function prepareRightIndicesForSlider(sliderObject) {
 }
 
 // Prepare the indexes for movement to RIGHT
-function prepareLeftForSlider(sliderObject) {
+function prepareLeftIndicesForSlider(sliderObject) {
 
     var indicesToMove = [];
-    const targetLeft = `${sliderObject.leftHiddenRegion}px`;
 
-    for (var i = 0; i < sliderObject.numToDisplay + 1; ++i) {
-        var tIndex = sliderObject.sliderRightIndex + i;
+    // We want to animate double the amount that is shown in the viewport for a smooth animation.            
+    let numOfIndicesToShift =  sliderObject.numToDisplay * 2;   
 
-        // Convert the indexes into the appropriate value
-        // tIndex = tIndex % sliderObject.sliderMaxItems;
 
-        if (tIndex < 0) {
-            tIndex += sliderObject.sliderMaxItems;
-        }
+    let tIndex = sliderObject.sliderRightIndex;
 
-        // Move the first item to the hidden region and set index
-        if (i == 0) {
-            $(sliderObject.children[tIndex]).css("left", targetLeft);
+    // sliderRightIndex always represents the index of the slider currently visible furthest to the right
+    // Our initial slider right index default value shall be 'sliderObject.numToDisplay-1'.
+    // We'll push this as it's the first index we'd like to move.
+    indicesToMove.push(tIndex);
+
+     for (let i = 0; i < numOfIndicesToShift - 1; ++i) {
+        // We want to 'wrap' around the index so we don't animate something that is out of bounds
+        // Increment the index, and then only store the remainder after performing a modulo
+
+        tIndex = (tIndex - 1) % sliderObject.children.length;
+
+        if (tIndex < 0){
+            tIndex = sliderObject.children.length - 1;
         }
 
         indicesToMove.push(tIndex);
     }
 
-    sliderObject.sliderLeftIndex--;
-    sliderObject.sliderRightIndex--;
+    console.log(`indicesToMove: ${indicesToMove}`);
 
     return indicesToMove;
 
@@ -220,6 +262,12 @@ function configureSlider(sliderIdentifier, numToDisplay, numToScroll) {
 
     // Determine the uniform width for each of the slider objects
     sliderObj.sliderContentWidth = sliderObj.viewPortWidth / sliderObj.numToDisplay;
+
+    // Set initial value for the indices:
+
+    sliderObj.sliderLeftIndex = 0;
+    sliderObj.sliderRightIndex = sliderObj.numToDisplay - 1        
+
 
     // Place the first 'X' amount of slides into the appropriate position based off of numToDisplay
     // Remaining items should be sorted into a overflow zone. We'll choose to put far off in the - area
