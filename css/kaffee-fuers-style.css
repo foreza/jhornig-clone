@@ -1,0 +1,58 @@
+body {
+    margin: 0px;
+}
+
+#top-text {
+    height: 500px;
+    width: 100%;
+}
+
+#logo-slider {
+    height: 300px;
+    width: 80%;
+}
+
+
+.tilted-promo-text-container {
+    width: 50%;
+    height: 150px;
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.tilted-promo-text-container .tilted-promo-text{
+    text-align: center;
+    transform: rotate(-5deg);
+}
+
+.tilted-promo-text-container .tilted-promo-text p{
+    font-size: 56px;
+    font-weight: 700;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: red;
+}
+
+
+.promo-section {
+    width: 80%;
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    
+}
+
+.header-title-text{
+    font-size: 28px;
+    text-align: left;
+    text-transform: uppercase;
+    color: #777777;
+}
+
+.header-content-text{
+    font-size: 18px;
+    text-align: left;
+    color: #777777;
+}
