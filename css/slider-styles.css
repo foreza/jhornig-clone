@@ -193,10 +193,13 @@
     opacity: 0;
 }
 
-#blog-image-carousel-section:hover .slider-button-style-2{
+.slider:hover .slider-button-style-2{
     opacity: 0.7;
 }
 
+#blog-image-carousel-section:hover .slider-button-style-2{
+    opacity: 0.7;
+}
 
 /* TODO: Animate this */
 #top-image-carousel-section:hover .slider-button-style-1 {
@@ -263,6 +266,7 @@
 
 .slider-card-image-container img {
     width: 100%;
+    max-height: 100%;
 }
 
 .slider-card-header {
