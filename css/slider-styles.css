@@ -193,6 +193,20 @@
     opacity: 0;
 }
 
+.slider-button-style-3 {
+    position: absolute;
+    width: 30px;
+    height: 100%;
+    z-index: 10;
+    background: #ffffff;
+    color: #000000;
+    font-size: 20px;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    border: none;
+}
+
 .slider:hover .slider-button-style-2{
     opacity: 0.7;
 }

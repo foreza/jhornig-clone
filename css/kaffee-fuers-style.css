@@ -8,7 +8,7 @@ body {
 }
 
 #logo-slider {
-    height: 300px;
+    height: 150px;
     width: 80%;
 }
 
@@ -49,10 +49,150 @@ body {
     text-align: left;
     text-transform: uppercase;
     color: #777777;
+    font-family: sans-serif;
+    font-weight: 300;
+
 }
 
 .header-content-text{
+    font-size: 16px;
+    text-align: left;
+    color: #777777;
+    font-family: sans-serif;
+    font-weight: 100;
+
+}
+
+
+.sub-header-title-text{
+    font-size: 22px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #777777;
+    font-family: sans-serif;
+
+}
+
+.sub-header-content-text{
     font-size: 18px;
     text-align: left;
     color: #777777;
+    font-family: sans-serif;
+
 }
+
+
+.tier-section-container{
+    font-size: 0;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.tier-content-container {
+    border: 1px solid #ececec;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.tier-content-container-special {
+    border: 2px solid #552d00;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: -15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+
+.tier-content-container:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+.tier-content-header {
+    border-bottom: 1px solid #ececec;
+}
+
+.tier-content-header p{
+    font-size: 16px;
+    color: #777777;
+    text-align: center;
+    background-color: #fafafa;
+    margin: 0px;
+    line-height: 35px; 
+    font-family: sans-serif;
+    font-weight: 500;
+
+    
+}
+
+.tier-content-container-special  .tier-content-header {
+    border-bottom: 1px solid #552d00;
+}
+
+.tier-content-container-special .tier-content-header p{
+    font-size: 16px;
+    color: #ffffff;
+    text-align: center;
+    background-color: #552d00;
+    margin: 0px;
+    line-height: 35px; 
+    font-family: sans-serif;
+    font-weight: 500;
+}
+
+.tier-content-emphasis  {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.tier-content-emphasis p {
+    font-size: 36px;
+    text-align: center;
+    margin: 0px;
+    margin-top:20px;
+    line-height: 30px;
+    font-family: sans-serif;
+    font-weight: 100;
+
+    
+}
+
+.tier-content-quantity  p{
+    font-size: 14px;
+    text-align: center;
+    margin: 0px;
+    color: #777777;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: sans-serif;
+    font-weight: 100;
+}
+
+ul.tier-items-list{
+    list-style-type: none;
+    padding: 0;
+    padding-bottom: 20px;
+    width: 70%;
+    margin: 0 auto;
+    font-family: sans-serif;
+}
+
+
+ul.tier-items-list li {
+    font-size: 16px;
+    color: #777777;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: sans-serif;    
+    font-weight: 100;
+}
+
+ul.tier-items-list li.list-divider {
+    background-color: #ececec;
+    height: 1px;
+    width: 80%;
+    margin: 0 auto;
+} 
