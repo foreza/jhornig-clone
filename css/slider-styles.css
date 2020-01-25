@@ -283,6 +283,14 @@
     max-height: 100%;
 }
 
+.slider-card-image-small img{
+    width: 70%;
+    max-height: 100%;
+    position: relative;
+    display: block;
+    margin: 0 auto;
+}
+
 .slider-card-header {
     display: block;
     position: relative;
