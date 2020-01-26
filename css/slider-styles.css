@@ -217,10 +217,16 @@
 
 /* TODO: Animate this */
 #top-image-carousel-section:hover .slider-button-style-1 {
+    opacity: 1.0;
+
+}
+
+.slider-button-style-1:hover{
     color: #ffffff;
     background-color: #552d00;      /* Wrong color */
     opacity: 1.0;
 }
+
 
 .slider-button-right {
     right: 0%;
