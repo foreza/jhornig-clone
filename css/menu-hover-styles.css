@@ -9,6 +9,7 @@
     display: block;
     position: absolute;
     z-index: 999;
+    top: 65px;
 }
 
 /* On-hover color for top bar */
@@ -65,4 +66,18 @@
 
 .show-on-hover div.child-on-hover-menu ul.child-list-menu li a:hover{
     color: #000000;
+}
+
+
+#nav-bar #nav-bar-list>li>a:hover {
+    text-decoration: none;
+}
+
+#nav-bar #nav-bar-list>li:hover .underline-style{
+    background-color: #552d00;
+    height: 3px;
+    margin-top: 9px;
+    position: absolute;
+    width: 100%;
+    
 }

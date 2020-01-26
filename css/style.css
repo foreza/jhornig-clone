@@ -73,6 +73,7 @@ body {
 }
 
 #nav-bar #nav-bar-list>li>a{
+    position: relative;
     text-decoration: none;
     color: #000000;
 }
@@ -82,10 +83,6 @@ body {
     color: #b3b0af;
 }
 
-#nav-bar #nav-bar-list>li>a:hover{
-    text-decoration: underline;
-    
-}
 
 /* Floats the special list items to the right */ 
 #nav-bar #nav-bar-list>li.item-float-right {
@@ -580,7 +577,6 @@ body {
     font-size: 14px;
     text-decoration-line: none;
 }
-
 
 
 
