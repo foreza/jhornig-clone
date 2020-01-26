@@ -5,11 +5,11 @@ $(document).ready(function () {
    
 
     $('#logo-slider-animate-left').click( function(){
-        slideLeftForSlider(logoSlider)
+        slideLeftOnceForSlider(logoSlider)
     });
 
     $('#logo-slider-animate-right').click( function(){
-        slideRightForSlider(logoSlider)
+        slideRightOnceForSlider(logoSlider)
     });
 
 });
