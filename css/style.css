@@ -522,6 +522,8 @@ body {
 .product-section-info-container{
     font-size: 12px;
     text-align: center;
+    font-family: sans-serif;
+    font-weight: 200;
 
 }
 
@@ -578,7 +580,9 @@ body {
     text-decoration-line: none;
 }
 
-
+.product-info-stars img {
+    height: 10px;
+}
 
 
 

@@ -81,3 +81,46 @@
     width: 100%;
     
 }
+
+.search-hover {
+    color: #ffffff;
+}
+
+.top-icon-bar {
+    float: left;
+    height: 16px;
+    margin-right: 3px;
+}
+
+.nav-icon-bar {
+    height: 17px;
+}
+
+.nav-icon-hover {
+    height: 26px;
+    padding: 2px;
+}
+
+.search-hover button{
+    background: #e63126;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    border: none;
+
+}
+
+.search-hover button:hover{
+    background: #7c0903;
+}
+
+
+.search-hover input{
+    float: left;
+    line-height: 30px;
+    font-size: 20px;
+}
+
+.nav-icon-hover path{
+    fill: currentColor;
+}
