@@ -107,7 +107,7 @@ body {
     position: relative;
     display: block;
     margin: 0 auto;
-    height: 225px;
+    height: 200px;
     overflow: hidden;
 }
 
@@ -453,10 +453,38 @@ body {
 
 /* General Product styles */ 
 
+.product-section-title-container{
+    display: block;
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+    height: 50px;
+    margin-top: 50px;
+    margin-bottom: 25px;
+    font-size: 0px;
+}
+
 .product-title-text{
-    font-size: 30px;
+    font-size: 25px;
     text-align: center;
     text-transform: uppercase;
+    font-family: sans-serif;
+    font-weight: 400;
+    color: #777777;
+}
+
+.product-title-flare-container{
+    height: 25px;
+}
+
+.product-title-flare {
+    position: relative;
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    top: 50%;
+    height: 1px;
+    background-color: #777777;
 }
 
 .product-section-info-container{
