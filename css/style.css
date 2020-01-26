@@ -9,12 +9,12 @@ body {
 }
 
 #blog-slider {
-    height: 300px;
+    height: 100%;
     width: 85%;
 }
 
 #ig-slider {
-    height: 300px;
+    height: 100%;
     width: 100%;
 }
 
@@ -43,69 +43,6 @@ body {
 
 
 
-#nav-bar{
-    background-color: #ffffff;
-    width: 100%;
-    z-index: 1;
-}
-
-#nav-bar ul {
-    list-style: none;
-    display: inline-block;
-    width: 95%;
-    position: relative;
-    margin: 0 auto;
-}
-
-/* Styles specifically the list elements for the nav bar itself */
-#nav-bar #nav-bar-list>li {
-    text-transform: uppercase;
-    float: left;
-    min-width: 50px;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    padding-bottom: 35px;
-    padding-top: 35px;
-    padding-left: 10px;
-    padding-right: 10px;
-    font-size: 14px;
-    font-weight: 900;
-}
-
-#nav-bar #nav-bar-list>li>a{
-    text-decoration: none;
-    color: #000000;
-}
-
-#nav-bar #nav-bar-list>li>a span.carat{
-    margin-left: 3px;
-    color: #b3b0af;
-}
-
-#nav-bar #nav-bar-list>li>a:hover{
-    text-decoration: underline;
-    
-}
-
-/* Floats the special list items to the right */ 
-#nav-bar #nav-bar-list>li.item-float-right {
-    float: right;
-    margin-right: 50px;
-}
-
-
-#nav-bar li.item-logo {
-    width: 15%;
-    z-index: 1;
-}
-
-#nav-bar li.item-logo img{
-    height: 56px;
-    position: absolute;
-    top: 20%;
-    left: 3%;
-    z-index: 2;
-}
 
 
 #top-image-carousel-section {
@@ -116,8 +53,6 @@ body {
     height: 500px;
     overflow: hidden;
 }
-
-
 
 
 #image-section-1 {
@@ -162,9 +97,8 @@ body {
     position: relative;
     display: block;
     margin: 0 auto;
-    height: 270px;
+    height: 400px;
     overflow: hidden;
-    background: grey;
 }
 
 #instagram-image-carousel-section {
@@ -174,7 +108,6 @@ body {
     margin: 0 auto;
     height: 200px;
     overflow: hidden;
-    background: grey;
 }
 
 #testimonials-columns-section{
@@ -428,12 +361,12 @@ body {
 
 .image-section-container{
     font-size: 12px;
+    overflow: hidden;
 }
 
 #image-section-1 .image-section-container {
-    padding-top: 15px;
-    margin-left:7px;
-    margin-right:7px;
+    margin-left:10px;
+    margin-right:10px;
 }
 
 #image-section-2 .image-section-container {
@@ -442,16 +375,25 @@ body {
     margin-top: 5px;
 }
 
+.image-section-container .background-image-zoom-effect{
+    transition: transform 1s;
+}
+
+
+.image-section-container:hover .background-image-zoom-effect{
+    transform: scale(1.15);
+}
+
 .background-image-centered{
     background-repeat: no-repeat;
-    background-position: 50% 50%;
     background-size: cover;
+    filter: brightness(0.7);
 }
 
 .background-image-contained{
     background-repeat: no-repeat;
-    background-position: 50% 50%;
     background-size: contain;
+    background-position: 50% 50%;
 }
 
 .background-image-large{
@@ -471,12 +413,14 @@ body {
     position: absolute;
     top: 40%;
     width: 100%;
+    
 }
 
 .background-image-text-overlay-special{
     position: absolute;
     bottom: 25%;
     width: 100%;
+    z-index: 1;
 }
 
 .background-image-text-center-group{
@@ -486,6 +430,7 @@ body {
     width: 60%;
     height: 100%;
     margin: 0 auto;
+    z-index: 1;
 }
 
 .background-image-text-center-group a{
@@ -507,15 +452,45 @@ body {
 
 /* General Product styles */ 
 
+.product-section-title-container{
+    display: block;
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+    height: 50px;
+    margin-top: 50px;
+    margin-bottom: 25px;
+    font-size: 0px;
+}
+
 .product-title-text{
-    font-size: 30px;
+    font-size: 25px;
     text-align: center;
     text-transform: uppercase;
+    font-family: sans-serif;
+    font-weight: 400;
+    color: #777777;
+}
+
+.product-title-flare-container{
+    height: 25px;
+}
+
+.product-title-flare {
+    position: relative;
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    top: 50%;
+    height: 1px;
+    background-color: #777777;
 }
 
 .product-section-info-container{
     font-size: 12px;
     text-align: center;
+    font-family: sans-serif;
+    font-weight: 200;
 
 }
 
@@ -572,8 +547,9 @@ body {
     text-decoration-line: none;
 }
 
-
-
+.product-info-stars img {
+    height: 10px;
+}
 
 
 

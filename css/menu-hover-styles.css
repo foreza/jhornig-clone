@@ -1,3 +1,72 @@
+#nav-bar{
+    background-color: #ffffff;
+    width: 100%;
+    z-index: 100;
+}
+
+#nav-bar ul {
+    list-style: none;
+    display: inline-block;
+    width: 95%;
+    position: relative;
+    margin: 0 auto;
+}
+
+/* Styles specifically the list elements for the nav bar itself */
+#nav-bar #nav-bar-list>li {
+    text-transform: uppercase;
+    float: left;
+    min-width: 50px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-bottom: 35px;
+    padding-top: 35px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 14px;
+    font-weight: 900;
+}
+
+#nav-bar #nav-bar-list>li>a{
+    position: relative;
+    text-decoration: none;
+    color: #000000;
+}
+
+#nav-bar #nav-bar-list>li>a span.carat{
+    margin-left: 3px;
+    color: #b3b0af;
+}
+
+
+/* Floats the special list items to the right */ 
+#nav-bar #nav-bar-list>li.item-float-right {
+    float: right;
+    margin-right: 50px;
+}
+
+
+#nav-bar li.item-logo {
+    width: 15%;
+    z-index: 1;
+}
+
+#nav-bar li.item-logo img{
+    height: 56px;
+    position: absolute;
+    top: 20%;
+    left: 3%;
+    z-index: 2;
+}
+
+
+
+.nav-sticky{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
 
 /* This style hides the menu by default */
 .show-on-hover div.child-on-hover-menu{
@@ -9,6 +78,7 @@
     display: block;
     position: absolute;
     z-index: 999;
+    top: 65px;
 }
 
 /* On-hover color for top bar */
@@ -65,4 +135,61 @@
 
 .show-on-hover div.child-on-hover-menu ul.child-list-menu li a:hover{
     color: #000000;
+}
+
+
+#nav-bar #nav-bar-list>li>a:hover {
+    text-decoration: none;
+}
+
+#nav-bar #nav-bar-list>li:hover .underline-style{
+    background-color: #552d00;
+    height: 3px;
+    margin-top: 9px;
+    position: absolute;
+    width: 100%;
+    
+}
+
+.search-hover {
+    color: #ffffff;
+}
+
+.top-icon-bar {
+    float: left;
+    height: 16px;
+    margin-right: 3px;
+}
+
+.nav-icon-bar {
+    height: 17px;
+}
+
+.nav-icon-hover {
+    height: 26px;
+    padding: 2px;
+}
+
+.search-hover button{
+    background: #e63126;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    border: none;
+
+}
+
+.search-hover button:hover{
+    background: #7c0903;
+}
+
+
+.search-hover input{
+    float: left;
+    line-height: 30px;
+    font-size: 20px;
+}
+
+.nav-icon-hover path{
+    fill: currentColor;
 }

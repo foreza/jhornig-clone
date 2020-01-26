@@ -8,8 +8,8 @@ $(document).ready(function () {
 
     
     topSlider = configureSlider("top-slider", 1, 1);
-    blogSlider = configureSlider("blog-slider", 3, 1);
-    igSlider = configureSlider("ig-slider", 6, 1);
+    blogSlider = configureSlider("blog-slider", 3, 3);
+    igSlider = configureSlider("ig-slider", 6, 6);
 
 
     $('#top-slider-animate-left').click( function(){
