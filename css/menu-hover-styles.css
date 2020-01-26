@@ -18,7 +18,6 @@
     float: left;
     min-width: 50px;
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
     padding-bottom: 35px;
     padding-top: 35px;
     padding-left: 10px;
@@ -115,7 +114,6 @@
     text-align: left;
     display: block;
     color: #b3b0af;
-    font-family: Arial, Helvetica, sans-serif;
     margin-left: 10px;
     padding: 10px;
     background: white;

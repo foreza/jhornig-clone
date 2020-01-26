@@ -3,6 +3,11 @@ body {
     margin: 0px;
 }
 
+p, span, a{
+    font-family: sans-serif;
+    font-weight: 200;
+}
+
 #top-slider {
     height: 500px;
     width: 100%;
@@ -241,14 +246,12 @@ body {
 .newsletter-title {
     text-align: left;
     text-transform: uppercase;
-    font-family: sans-serif;
     color: #ffffff;
     font-size: 38px;
 }
 
 .newsletter-text{
     text-align: left;
-    font-family: sans-serif;
     color: #ffffff;
     font-size: 16px;
 }
@@ -439,13 +442,11 @@ body {
 }
 
 .background-image-text-center-group span.small-comment{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: #ffffff;
     font-size: 14px;
 }
 
 .background-image-text-center-group span.big-comment{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: #ffffff;
     font-size: 24px;
 
